@@ -1,6 +1,6 @@
 {
   "name": "ScriptTask Enhanced",
-  "shortName": "scripttask-enhanced",
+  "shortName": "scripttask",
   "version": "0.1.1",
   "author": "Julien (V3locidad)",
   "description": "Enhanced ScriptTask plugin with multi-endpoint run and Dry Run support",
