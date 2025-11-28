@@ -1,10 +1,10 @@
 {
   "name": "ScriptTask Enhanced",
   "shortName": "scripttask-enhanced",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "Julien (V3locidad)",
-  "description": "Enhanced ScriptTask plugin with multi-endpoint run and Dry Run (simulation) mode",
-  "hasAdminPanel": true,
+  "description": "Enhanced ScriptTask plugin with multi-endpoint run and Dry Run support",
+  "hasAdminPanel": false,
   "homepage": "https://github.com/V3locidad/MeshCentral-ScriptTask-Enhanced",
   "changelogUrl": "https://raw.githubusercontent.com/V3locidad/MeshCentral-ScriptTask-Enhanced/main/changelog.md",
   "configUrl": "https://raw.githubusercontent.com/V3locidad/MeshCentral-ScriptTask-Enhanced/main/config.json",
