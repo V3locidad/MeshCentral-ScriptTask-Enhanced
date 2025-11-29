@@ -156,8 +156,7 @@ scripttask/
 ## 👤 Author
 
 **Julien (V3locidad)**
-
-🛠️ BugHunter / MeshCentral plugin developer  
+ 
 🔗 GitHub: https://github.com/V3locidad
 
 ---
