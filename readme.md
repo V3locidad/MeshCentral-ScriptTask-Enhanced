@@ -37,12 +37,25 @@ Enhanced version of the original **ScriptTask plugin** for MeshCentral, includin
 
 ## 🔧 Installation
 
-### ⚙️ Automatic (recommended)
+### ⚠️ Important: Replacing the Original ScriptTask Plugin
 
-Run the following command inside your MeshCentral installation directory:
-```bash
-https://raw.githubusercontent.com/V3locidad/MeshCentral-ScriptTask-Enhanced/main/config.json
-```
+If you already have the original ScriptTask plugin installed, you **must** uninstall it first to avoid conflicts:
+
+1. Log into MeshCentral as administrator
+2. Go to **My Server** (top right)
+3. Click on the **Plugins** tab
+4. Find the original "ScriptTask" plugin
+5. Click the **Disable** next to the plugin
+6. Select **Delete**
+7. Confirm the deletion
+
+### ⚙️ Automatic Installation (Recommended)
+
+1. Go to **My Account** → **Plugins**
+2. Click **Download Plugin**
+3. Paste the config URL: `https://raw.githubusercontent.com/V3locidad/MeshCentral-ScriptTask-Enhanced/main/config.json`
+
+### 📝 Configuration
 
 Ensure plugins are enabled in your MeshCentral `config.json`:
 ```json
@@ -50,6 +63,28 @@ Ensure plugins are enabled in your MeshCentral `config.json`:
   "enabled": true
 }
 ```
+
+### 🔄 Restart MeshCentral
+
+After installation, **restart MeshCentral** to clear the cache and load the plugin:
+```bash
+# If using systemd
+systemctl restart meshcentral
+
+# Or if running manually
+# Stop MeshCentral (Ctrl+C) and start it again
+node node_modules/meshcentral
+```
+
+### 🌐 Clear Browser Cache
+
+After restarting MeshCentral, **clear your browser cache** or use **Ctrl + F5** (Cmd + Shift + R on Mac) to force reload the page.
+
+### ✅ Verify Installation
+
+1. Log into MeshCentral as a full administrator
+2. Navigate to a device/endpoint
+3. Look for "ScriptTask Enhanced" in the available plugins/actions
 
 ---
 
