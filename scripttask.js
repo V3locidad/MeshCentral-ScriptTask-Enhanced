@@ -40,12 +40,12 @@ module.exports.scripttask = function (parent) {
         obj.resetQueueTimer();
     };
     
-   obj.onDeviceRefreshEnd = function() {
-    this.registerPluginTab({
+    obj.onDeviceRefreshEnd = function() {
+        this.registerPluginTab({
         tabTitle: 'ScriptTask',
         tabId: 'pluginScriptTask'
     });
-    QA('pluginScriptTask', '<iframe id="pluginIframeScriptTask" style="width: 100%; height: 700px; overflow: auto" scrolling="yes" frameBorder=0 src="/pluginadmin.ashx?pin=scripttask&user=1" />');
+    QA('pluginScriptTask', '<iframe id="pluginIframeScriptTask" style="width: 100%; height: 700px; overflow: auto" scrolling="yes" frameBorder=0 src="/pluginadmin.ashx?pin=scripttask-enhanced&user=1" />');
     };
     // may not be needed, saving for later. Can be called to resize iFrame
     obj.resizeContent = function() {
