@@ -15,5 +15,4 @@
   },
   "versionHistoryUrl": "https://api.github.com/repos/V3locidad/MeshCentral-ScriptTask-Enhanced/tags",
   "meshCentralCompat": ">=1.1.35",
-  "appliesTo": "node"
 }
