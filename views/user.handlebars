@@ -408,32 +408,30 @@ function goDryRun() {
 
     cboxes.forEach((n) => {
         nodes.push(n.value);                                  // Node ID
-        nodeNames.push(n.parentNode.textContent.trim());      // UI label
+        nodeNames.push(n.parentNode.textContent.trim());      // Visible name
     });
 
-    // If none selected, use current node
+    // If none selected, use current endpoint
     if (!nodes.length) {
         nodes = [parent.currentNode._id];
         nodeNames = [parent.currentNode.name];
     }
 
-    // 🔥 Build Dry Run preview message in HTML
+    // Build Dry Run preview message (HTML)
     var msg = ""
         + "<b>🔍 DRY RUN SIMULATION</b><br/>"
         + "📄 <b>Script:</b> " + scriptName + "<br/>"
         + "🖥️ <b>Target machines:</b> " + nodes.length + "<br/><br/>"
         + nodeNames.map((n) => "• " + n).join("<br/>") + "<br/><br/>"
-        + "📌 <i>No action has been executed.</i><br/>"
-        + "Do you want to execute this script now?";
+        + "📌 <i>No action has been executed.</i>";
 
+    // Display preview only (no execution)
     parent.setDialogMode(
-        2,                      // Dialog mode
-        "Dry Run Preview",      // Title
-        3,                      // OK / Cancel
-        function () {
-            goExecuteScriptForReal(scriptId, nodes);
-        },
-        msg                     // HTML content
+        2,                     // Popup mode
+        "Dry Run Preview",     // Title
+        1,                     // Only OK button (no Cancel / no callback)
+        null,                  // No action on OK → prevents execution
+        msg                    // Content
     );
 }
 function goEdit() {
@@ -1085,4 +1083,5 @@ function redrawScriptTree() {
   
 </script>
 </html>
+
 
