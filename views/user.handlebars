@@ -392,39 +392,50 @@ function goRun() {
     });
 }
 function goDryRun() {
-    var cboxes = document.querySelectorAll('input[name="runOn[]"]:checked');
-    var nodes = [];
-
-    cboxes.forEach((n) => nodes.push(n.value));
-
-    if (nodes.length === 0) {
-        parent.setDialogMode(2, "Dry Run", 1, null, "No machines selected for simulation.");
-        return;
-    }
-
     var selScript = document.querySelectorAll('.liselected');
     if (!selScript.length) {
-        parent.setDialogMode(2, "Dry Run", 1, null, "No script selected.");
+        parent.setDialogMode(2, "Error", 1, null, "No script selected.");
         return;
     }
 
-    var scriptName = selScript[0].querySelector('.fname')?.innerText || "Unknown script";
+    var scriptName = selScript[0].querySelector('.fname').innerText;
+    var scriptId = selScript[0].getAttribute('x-data-id');
 
-    var message = `⚙️ <b>DRY RUN SIMULATION</b><br><br>`;
-    message += `📄 <b>Script:</b> ${scriptName}<br>`;
-    message += `🖥️ <b>Target machines:</b> ${nodes.length}<br><br>`;
-    message += `<b>Endpoints:</b><br>`;
+    // Collect selected endpoints
+    var cboxes = document.querySelectorAll('input[name="runOn[]"]:checked');
+    var nodes = [];
+    var nodeNames = [];
 
-    nodes.forEach((n) => {
-    var name = parent.nodes.filter(x => x._id === n)[0]?.name || n;
-    message += `&nbsp;&nbsp;&nbsp;• ${name}<br>`;
+    cboxes.forEach((n) => {
+        nodes.push(n.value);                                  // Node ID
+        nodeNames.push(n.parentNode.textContent.trim());      // UI label
     });
 
-    message += `<br>📌 <i>No action has been executed.</i>`;
+    // If none selected, use current node
+    if (!nodes.length) {
+        nodes = [parent.currentNode._id];
+        nodeNames = [parent.currentNode.name];
+    }
 
-    parent.setDialogMode(2, "Dry Run Preview", 1, null, message);
+    // 🔥 Build Dry Run preview message in HTML
+    var msg = ""
+        + "<b>🔍 DRY RUN SIMULATION</b><br/>"
+        + "📄 <b>Script:</b> " + scriptName + "<br/>"
+        + "🖥️ <b>Target machines:</b> " + nodes.length + "<br/><br/>"
+        + nodeNames.map((n) => "• " + n).join("<br/>") + "<br/><br/>"
+        + "📌 <i>No action has been executed.</i><br/>"
+        + "Do you want to execute this script now?";
+
+    parent.setDialogMode(
+        2,                      // Dialog mode
+        "Dry Run Preview",      // Title
+        3,                      // OK / Cancel
+        function () {
+            goExecuteScriptForReal(scriptId, nodes);
+        },
+        msg                     // HTML content
+    );
 }
-
 function goEdit() {
     var selScript = document.querySelectorAll('.liselected');
     if (selScript.length && (selScript[0].getAttribute('x-data-id') != selScript[0].getAttribute('x-data-folder'))) {
@@ -1074,3 +1085,4 @@ function redrawScriptTree() {
   
 </script>
 </html>
+
