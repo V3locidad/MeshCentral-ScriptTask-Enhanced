@@ -7,7 +7,7 @@
 
 "use strict";
 
-module.exports.pluginHandler = function (parent) {
+module.exports.scripttask = function (parent) {
     var obj = {};
     obj.parent = parent;
     obj.meshServer = parent.parent;
