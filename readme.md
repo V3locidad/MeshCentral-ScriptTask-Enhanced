@@ -44,18 +44,6 @@ Run the following command inside your MeshCentral installation directory:
 https://raw.githubusercontent.com/V3locidad/MeshCentral-ScriptTask-Enhanced/main/config.json
 ```
 
-Or using Node directly:
-```bash
-node node_modules/meshcentral --installplugin https://raw.githubusercontent.com/V3locidad/MeshCentral-ScriptTask-Enhanced/main/config.json
-```
-
-### 📦 Manual
-```bash
-cd meshcentral-data/plugins
-git clone https://github.com/V3locidad/MeshCentral-ScriptTask-Enhanced.git scripttask
-systemctl restart meshcentral
-```
-
 Ensure plugins are enabled in your MeshCentral `config.json`:
 ```json
 "plugins": {
