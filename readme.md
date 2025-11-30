@@ -53,7 +53,11 @@ If you already have the original ScriptTask plugin installed, you **must** unins
 
 1. Go to **My Account** → **Plugins**
 2. Click **Download Plugin**
-3. Paste the config URL: `https://raw.githubusercontent.com/V3locidad/MeshCentral-ScriptTask-Enhanced/main/config.json`
+3. Paste the config URL: 
+
+```json
+https://raw.githubusercontent.com/V3locidad/MeshCentral-ScriptTask-Enhanced/main/config.json
+```
 
 ### 📝 Configuration
 
