@@ -13,5 +13,12 @@
     "url": "https://github.com/V3locidad/MeshCentral-ScriptTask-Enhanced.git"
   },
   "meshCentralCompat": ">=1.1.35",
-  "license": "MIT"
+  "files": [
+    "scripttask.js",
+    "db.js",
+    "nemongo.js",
+    "views/*",
+    "modules_meshcore/*",
+    "includes/*"
+  ]
 }
